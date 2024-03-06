@@ -1,0 +1,41 @@
+#cloud-config
+
+packages:
+  - apache2
+  - php
+  - libapache2-mod-php
+  - php-mysql
+  - mysql-server
+  - php-curl
+  - php-gd
+  - php-mbstring
+  - php-xml
+  - unzip
+
+runcmd:
+  # Enable Apache mod_rewrite
+  - a2enmod rewrite
+
+  # Restart Apache
+  - systemctl restart apache2
+
+  # Download WordPress
+  - curl -O https://wordpress.org/latest.tar.gz
+
+  # Extract WordPress
+  - tar -zxvf latest.tar.gz
+
+  # Move WordPress to Apache directory
+  - mv wordpress /var/www/html/
+
+  # Set permissions
+  - chown -R www-data:www-data /var/www/html/wordpress
+  - chmod -R 755 /var/www/html/wordpress
+
+  # Configure MySQL
+  - mysql -e "CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;"
+  - mysql -e "CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'password';"
+  - mysql -e "GRANT ALL ON wordpress.* TO 'wordpress'@'localhost';"
+  - mysql -e "FLUSH PRIVILEGES;"
+
+final_message: "WordPress installation complete. Navigate to your droplet's IP address in your browser to finish the setup."
