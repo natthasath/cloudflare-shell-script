@@ -7,6 +7,6 @@ Cloudflare Droplet Script: Automates server setup with Cloudflare integration fo
 ![rating](https://img.shields.io/badge/rating-★★★★★-yellow)
 ![uptime](https://img.shields.io/badge/uptime-100%25-brightgreen)
 
-### 🦧 Template
+### 💧 Drooplet
 
 - [Wordpress](/scripts/wordpress.yaml)
