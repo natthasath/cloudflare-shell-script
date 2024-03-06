@@ -10,3 +10,8 @@ Cloudflare Droplet Script: Automates server setup with Cloudflare integration fo
 ### 💧 Drooplet
 
 - [Wordpress](/scripts/wordpress.yaml)
+
+### 🏹 Workers
+
+- [Status Page](https://github.com/eidam/cf-workers-status-page)
+- [Update DDNS Record](https://gist.github.com/natthasath/2e496c1626974a003d122a3a35178457)
